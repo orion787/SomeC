@@ -48,14 +48,16 @@ void print_preorder(struct node *root){
 
 void iterative_preorder(struct node *root){
     struct stacknode *stack = NULL;
-
     stack_push(&stack, root);
 
     while(!is_empty(&stack)){
-        struct stacknode *tmp = stack_pop(&stack);//pop item
-        fprintf(stdout, "%d", tmp->data->data);//print item
-        stack_push(&stack,tmp->data->left);//push it`s left child
-        stack_push(&stack, tmp->data->right);//push it`s right child
+        struct node *tmp = stack_pop(&stack)->data;//pop item
+        fprintf(stdout, "%d", tmp->data);//print item
+        
+        if(tmp->left)
+            stack_push(&stack,tmp->left);//push it`s left child
+        if(tmp->right)
+            stack_push(&stack, tmp->right);//push it`s right child
     }
     puts("\n");
 }
