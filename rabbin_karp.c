@@ -43,7 +43,7 @@ int rabbin_karp(const char *needle, const char *haystack) {
     n = pow_mod(R, len_needle - 1, Q);
 
     for (left = 0, right = len_needle - 1; right < len_haystack; left++, right++) {
-        if (cur == target) { // Если хэши совпали, проверяем строки
+        if (cur == target) { // hashes same 
             if (strncmp(needle, haystack + left, len_needle) == 0) {
                 return left; //needle found
             }
