@@ -41,7 +41,7 @@ struct instr_t decode_comand(unsigned char cmd){
     instr.opnd.ops.rd = rf2;
 
     switch((cmd >> 4) & 0xF){
-        case 8: instr.opcode = ADD; puts("win"); return instr;
+        case 8: instr.opcode = ADD; return instr;
         case 9: instr.opcode = SUB; return instr;
         case 10: instr.opcode = MUL; return instr;
         case 11: instr.opcode = DIV; return instr;
